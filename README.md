@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Quiltographer
+
+AI-powered quilting pattern parser. Upload or describe a quilt pattern and Quiltographer uses OpenAI to break it down into structured, actionable steps — fabric requirements, cutting instructions, and assembly order.
+
+## Tech Stack
+
+- **Framework**: Next.js 15 (App Router)
+- **Auth**: NextAuth.js with Prisma adapter
+- **Database**: PostgreSQL via Prisma ORM
+- **AI**: OpenAI API for pattern parsing
+- **API**: tRPC for type-safe endpoints
+- **State**: Zustand
+- **Styling**: Tailwind CSS
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- PostgreSQL database
+- OpenAI API key
+
+### Setup
 
 ```bash
+# Install dependencies
+npm install
+
+# Copy environment variables and fill in your values
+cp .env.example .env
+
+# Generate Prisma client and run migrations
+npx prisma generate
+npx prisma db push
+
+# Start dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Variable | Description |
+|---|---|
+| `DATABASE_URL` | PostgreSQL connection string |
+| `NEXTAUTH_URL` | App URL (e.g. `http://localhost:3000`) |
+| `NEXTAUTH_SECRET` | Random secret for session encryption (`openssl rand -base64 32`) |
+| `OPENAI_API_KEY` | OpenAI API key for pattern parsing |
 
-## Learn More
+See `.env.example` for a template.
 
-To learn more about Next.js, take a look at the following resources:
+## Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Command | Description |
+|---|---|
+| `npm run dev` | Start development server |
+| `npm run build` | Production build |
+| `npm start` | Start production server |
+| `npm run lint` | Run ESLint |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploy to Vercel
 
-## Deploy on Vercel
+This is a standard Next.js app — Vercel auto-detects the framework with zero configuration.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Push your code to GitHub.
+2. Import the repository in [Vercel](https://vercel.com/new).
+3. Add all environment variables from `.env.example` in the Vercel project settings.
+4. Vercel will build and deploy automatically on every push to `main`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+For the database, use a managed PostgreSQL provider (Vercel Postgres, Supabase, Neon, etc.) and set `DATABASE_URL` accordingly.
