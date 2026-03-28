@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col font-[family-name:var(--font-geist-sans)]">
@@ -5,6 +7,9 @@ export default function Home() {
       <header className="flex items-center justify-between px-6 py-4 border-b border-black/10 dark:border-white/10">
         <span className="text-lg font-semibold tracking-tight">Quiltographer</span>
         <nav className="flex items-center gap-4 text-sm">
+          <Link href="/calculator" className="hover:underline underline-offset-4">
+            Calculator
+          </Link>
           <a href="#pricing" className="hover:underline underline-offset-4">
             Pricing
           </a>
