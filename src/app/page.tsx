@@ -10,6 +10,9 @@ export default function Home() {
           <Link href="/calculator" className="hover:underline underline-offset-4">
             Calculator
           </Link>
+          <Link href="/gallery" className="hover:underline underline-offset-4">
+            Gallery
+          </Link>
           <a href="#pricing" className="hover:underline underline-offset-4">
             Pricing
           </a>
