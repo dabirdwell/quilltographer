@@ -1,0 +1,386 @@
+[
+  {
+    "file": "around-the-block.pdf",
+    "source": "Riley Blake Designs",
+    "url": "rileyblakedesigns.com",
+    "parsed": {
+      "name": "AROUND THE BLOCK",
+      "designer": "s 1",
+      "finishedSize": "68\" x 86\"",
+      "widthInches": 68,
+      "heightInches": 86,
+      "blockSize": "16\" x 16\"",
+      "seamAllowance": "1/4\"",
+      "fabricRequirements": [
+        {
+          "fabric": "C635 Red Buffalo Check (Border)",
+          "yardage": "15/8 yards",
+          "yardsNumeric": 1.875
+        },
+        {
+          "fabric": "C637 Tan Houndstooth (Sashing)",
+          "yardage": "21/2 yards",
+          "yardsNumeric": 10.5
+        },
+        {
+          "fabric": "C639 Red Tweed (Binding)",
+          "yardage": "3/4 yards",
+          "yardsNumeric": 0.75
+        }
+      ],
+      "cuttingInstructions": [
+        {
+          "fabric": "Fat Quarter Bundle",
+          "cuts": [
+            "Cut 2 rectangle(s) 2½\" x 4½\", 2 rectangles 2½\" x 8½\",",
+            "Cut 2 rectangle(s) 2½\" x 4½\" and 2 rectangles 2½\" x 8½\" from the",
+            "Cut 2 rectangle(s) 2½\" x 12½\" and 2 rectangles 2½\" x 16½\" from the"
+          ]
+        },
+        {
+          "fabric": "Red Buffalo Check",
+          "cuts": [
+            "Cut 8 strip(s) 6½\" x WOF for Border 2"
+          ]
+        },
+        {
+          "fabric": "Tan Houndstooth",
+          "cuts": [
+            "Cut 2 strip(s) 4½\" x WOF",
+            "Cut 6 strip(s) 2½\" x WOF",
+            "Cut 8 strip(s) 2½\" x WOF",
+            "Cut 9 strip(s) 2½\" x WOF",
+            "Cut 7 strip(s) 2½\" x WOF for Border 1"
+          ]
+        }
+      ],
+      "assemblySteps": [],
+      "techniques": [
+        "sashing",
+        "border",
+        "binding",
+        "quilting"
+      ],
+      "pageCount": 4,
+      "textLength": 4391,
+      "confidence": 0.85,
+      "warnings": [
+        "No assembly steps found"
+      ]
+    }
+  },
+  {
+    "file": "cobblestone-street.pdf",
+    "source": "Robert Kaufman Fabrics",
+    "url": "robertkaufman.com",
+    "parsed": {
+      "name": "Cobblestone Street",
+      "designer": "Robert Kaufman Fabrics",
+      "finishedSize": null,
+      "widthInches": null,
+      "heightInches": null,
+      "blockSize": null,
+      "seamAllowance": null,
+      "fabricRequirements": [],
+      "cuttingInstructions": [],
+      "assemblySteps": [],
+      "techniques": [
+        "binding"
+      ],
+      "pageCount": 1,
+      "textLength": 265,
+      "confidence": 0.1,
+      "warnings": [
+        "Could not extract finished quilt size",
+        "No fabric requirements found",
+        "No cutting instructions parsed",
+        "No assembly steps found"
+      ]
+    }
+  },
+  {
+    "file": "morning-star.pdf",
+    "source": "Robert Kaufman Fabrics",
+    "url": "robertkaufman.com",
+    "parsed": {
+      "name": "Featuring",
+      "designer": "Cortney Heimerl",
+      "finishedSize": null,
+      "widthInches": null,
+      "heightInches": null,
+      "blockSize": null,
+      "seamAllowance": null,
+      "fabricRequirements": [
+        {
+          "fabric": "Kona Natural",
+          "yardage": "1 1/2 yards",
+          "yardsNumeric": 1.5
+        },
+        {
+          "fabric": "Kona Pool",
+          "yardage": "1/2 yards",
+          "yardsNumeric": 0.5
+        },
+        {
+          "fabric": "Kona Evergreen,",
+          "yardage": "1/8 yards",
+          "yardsNumeric": 0.125
+        },
+        {
+          "fabric": "Backing",
+          "yardage": "1 1/2 yards",
+          "yardsNumeric": 1.5
+        },
+        {
+          "fabric": "cuts of Kona:",
+          "yardage": "1/8 yards",
+          "yardsNumeric": 0.125
+        }
+      ],
+      "cuttingInstructions": [
+        {
+          "fabric": "Kona",
+          "cuts": [
+            "Cut 1 strip(s) 4-1/2” x WOF (Width of Fabric) from each fabric, then subcut into 60° diamonds (the"
+          ]
+        },
+        {
+          "fabric": "Kona Pool",
+          "cuts": [
+            "Cut 3 strip(s) 4-1/2” x WOF, then subcut into 18 60° diamonds"
+          ]
+        },
+        {
+          "fabric": "Kona Natural",
+          "cuts": [
+            "Cut 4 rectangle(s) 8” x 14”, and then subcut diagonally into half-square rectangles"
+          ]
+        },
+        {
+          "fabric": "Note",
+          "cuts": [
+            "Cut 4 square(s) 14-1/2” x 14-1/2”"
+          ]
+        }
+      ],
+      "assemblySteps": [
+        "Step 1: Assemble the Diamond Panels \n- Lay out the diamonds as shown. \nNote: You can follow the assembly diagram on page 4 \nfor color placement, or choose your own layout. \n- Piece three diamonds to make a ro",
+        "Step 1: until all 6 diamond panels are pieced. \npage 2",
+        "Step 2: Sew the Background Half-Square Rectangles to the Diamond Panels \nYou will piece the top half and the bottom half of the star separately and your final \nseam will be the center seam of the quilt. \n- Ar",
+        "Step 1: . \n- Repeat with the bottom center diamond panel. \n- Sew an 8” x 14” triangle to the top left and the top \nright diamond panel. Note the different orientation of \nthe triangle for the left and right d",
+        "Step 1: with the bottom left and bottom right \ndiamond panels. \n- Sew the top left diamond panel to the top center \ndiamond panel, stopping 1/4” before the edge. \nPress seams open. \nEnd the seam 1/4” \nbefore ",
+        "Step 3: Sew Diamond Panels Together \npage 3\n\nNow that your left diamond panel is sewn to the \ncenter diamond panel, there is a 90° angle where \nyou can piece your 14.5” square. Sewing the square \ninto this an",
+        "Step 4: Sew a Background Square to the Diamond Panels. \n- With right sides together, sew the background square \nto the left panel. You will stop 1/4” from the edge \n(right where your two diamond panels meet, ",
+        "Step 3: & 4 on the bottom \npanels to complete the lower half of the star.",
+        "Step 5: Assemble and Finish Quilt \n- Line up seams of the top half of the quilt with the \nbottom half of the quilt and sew. Press seams open. \n- Your quilt top is complete. Baste, quilt, bind and enjoy! \npage"
+      ],
+      "techniques": [
+        "inset seam"
+      ],
+      "pageCount": 4,
+      "textLength": 4833,
+      "confidence": 0.7,
+      "warnings": [
+        "Could not extract finished quilt size"
+      ]
+    }
+  },
+  {
+    "file": "pixelated-rose.pdf",
+    "source": "Riley Blake Designs",
+    "url": "rileyblakedesigns.com",
+    "parsed": {
+      "name": "Pixelated Rose",
+      "designer": "s",
+      "finishedSize": "66\" x 78\"",
+      "widthInches": 66,
+      "heightInches": 78,
+      "blockSize": "12\" x 12\"",
+      "seamAllowance": "1/4\"",
+      "fabricRequirements": [
+        {
+          "fabric": "C120 Petal Pink",
+          "yardage": "3/4 yards",
+          "yardsNumeric": 0.75
+        },
+        {
+          "fabric": "C120 Peony",
+          "yardage": "1/2 yards",
+          "yardsNumeric": 0.5
+        },
+        {
+          "fabric": "C120 Rose",
+          "yardage": "3/8 yards",
+          "yardsNumeric": 0.375
+        },
+        {
+          "fabric": "C120 Raspberry",
+          "yardage": "3/8 yards",
+          "yardsNumeric": 0.375
+        },
+        {
+          "fabric": "C120 Riley White",
+          "yardage": "23/4 yards",
+          "yardsNumeric": 5.75
+        },
+        {
+          "fabric": "C120 Sweet Pea",
+          "yardage": "5/8 yards",
+          "yardsNumeric": 0.625
+        },
+        {
+          "fabric": "C120 Grass",
+          "yardage": "5/8 yards",
+          "yardsNumeric": 0.625
+        },
+        {
+          "fabric": "C120 Treetop",
+          "yardage": "1/2 yards",
+          "yardsNumeric": 0.5
+        },
+        {
+          "fabric": "CUTTING REQUIREMENTS",
+          "yardage": "5/8 yards",
+          "yardsNumeric": 0.625
+        }
+      ],
+      "cuttingInstructions": [
+        {
+          "fabric": "Pink Solids",
+          "cuts": [
+            "Cut 9 strip(s) 2½” x WOF from petal pink",
+            "Cut 6 strip(s) 2½” x WOF from peony",
+            "Cut 5 strip(s) 2½” x WOF from rose",
+            "Cut 4 strip(s) 2½” x WOF from raspberry"
+          ]
+        },
+        {
+          "fabric": "Green Solids",
+          "cuts": [
+            "Cut 7 strip(s) 2½\" x WOF from sweet pea",
+            "Cut 7 strip(s) 2½” x WOF from grass",
+            "Cut 6 strip(s) 2½\" x WOF from treetop"
+          ]
+        },
+        {
+          "fabric": "Riley White Solid",
+          "cuts": [
+            "Cut 30 strip(s) 2½\" x WOF",
+            "Cut 8 strip(s) 2½\" x WOF for Border"
+          ]
+        }
+      ],
+      "assemblySteps": [],
+      "techniques": [
+        "border",
+        "binding",
+        "quilting"
+      ],
+      "pageCount": 3,
+      "textLength": 3758,
+      "confidence": 0.85,
+      "warnings": [
+        "No assembly steps found"
+      ]
+    }
+  },
+  {
+    "file": "yellow-rose-of-texas.pdf",
+    "source": "Riley Blake Designs",
+    "url": "rileyblakedesigns.com",
+    "parsed": {
+      "name": "yellow Rose of Texas",
+      "designer": "s",
+      "finishedSize": "66\" x 78\"",
+      "widthInches": 66,
+      "heightInches": 78,
+      "blockSize": "12\" x 12\"",
+      "seamAllowance": "1/4\"",
+      "fabricRequirements": [
+        {
+          "fabric": "C120 Sunshine",
+          "yardage": "3/4 yards",
+          "yardsNumeric": 0.75
+        },
+        {
+          "fabric": "CR120 Crayola Bananamania",
+          "yardage": "1/2 yards",
+          "yardsNumeric": 0.5
+        },
+        {
+          "fabric": "C120 Daffodil",
+          "yardage": "3/8 yards",
+          "yardsNumeric": 0.375
+        },
+        {
+          "fabric": "C120 Riley Mustard",
+          "yardage": "3/8 yards",
+          "yardsNumeric": 0.375
+        },
+        {
+          "fabric": "C120 Riley White",
+          "yardage": "23/4 yards",
+          "yardsNumeric": 5.75
+        },
+        {
+          "fabric": "C120 Sweet Pea",
+          "yardage": "5/8 yards",
+          "yardsNumeric": 0.625
+        },
+        {
+          "fabric": "C120 Grass",
+          "yardage": "5/8 yards",
+          "yardsNumeric": 0.625
+        },
+        {
+          "fabric": "C120 Treetop",
+          "yardage": "1/2 yards",
+          "yardsNumeric": 0.5
+        },
+        {
+          "fabric": "CUTTING REQUIREMENTS",
+          "yardage": "5/8 yards",
+          "yardsNumeric": 0.625
+        }
+      ],
+      "cuttingInstructions": [
+        {
+          "fabric": "Yellow Solids",
+          "cuts": [
+            "Cut 9 strip(s) 2½\" x WOF from sunshine",
+            "Cut 6 strip(s) 2½\" x WOF from bananamania",
+            "Cut 5 strip(s) 2½\" x WOF from daffodil",
+            "Cut 4 strip(s) 2½\" x WOF from Riley mustard"
+          ]
+        },
+        {
+          "fabric": "Green Solids",
+          "cuts": [
+            "Cut 7 strip(s) 2½\" x WOF from sweet pea",
+            "Cut 7 strip(s) 2½\" x WOF from grass",
+            "Cut 6 strip(s) 2½\" x WOF from treetop"
+          ]
+        },
+        {
+          "fabric": "Riley White Solid",
+          "cuts": [
+            "Cut 30 strip(s) 2½\" x WOF",
+            "Cut 8 strip(s) 2½\" x WOF for Border"
+          ]
+        }
+      ],
+      "assemblySteps": [],
+      "techniques": [
+        "border",
+        "binding",
+        "quilting"
+      ],
+      "pageCount": 3,
+      "textLength": 4331,
+      "confidence": 0.85,
+      "warnings": [
+        "No assembly steps found"
+      ]
+    }
+  }
+]
