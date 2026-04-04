@@ -110,6 +110,12 @@ export default async function PatternDetailPage({
           >
             Gallery
           </Link>
+          <Link
+            href="/community"
+            className="hover:underline underline-offset-4"
+          >
+            Community
+          </Link>
           <a
             href="/api/auth/signin"
             className="rounded-full bg-foreground text-background px-4 py-2 text-sm font-medium hover:opacity-90 transition-opacity"
