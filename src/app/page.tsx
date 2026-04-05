@@ -16,6 +16,9 @@ export default function Home() {
           <Link href="/community" className="hover:underline underline-offset-4">
             Community
           </Link>
+          <Link href="/design" className="hover:underline underline-offset-4">
+            Design
+          </Link>
           <a href="#pricing" className="hover:underline underline-offset-4">
             Pricing
           </a>
