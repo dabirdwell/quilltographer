@@ -107,6 +107,7 @@ function parseFraction(str: string): number | null {
 /**
  * Parse yardage string like "2 3/4 yards" or "1/2 yard"
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function parseYardage(str: string): number | null {
   // Match patterns like "2 3/4 yard" or "1/2 yard" or "2.5 yards"
   const match = str.match(/(\d+(?:\s+\d+\/\d+|\.\d+|\/\d+)?)\s*yard/i);
@@ -282,6 +283,7 @@ function extractCuttingInstructions(fullText: string): CuttingInstruction[] {
   const section = cuttingSection[1];
 
   // Parse "Cut X strips Y" x WOF" patterns
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const cutPattern =
     /cut\s+(\d+)\s+(strip|square|rectangle|triangle|piece|diamond)s?\s+(\d+(?:[- ]\d+\/\d+|\/\d+)?)\s*["″'']\s*[x×X]\s*(\d+(?:[- ]\d+\/\d+|\/\d+)?|WOF)\s*["″'']?/gi;
 
@@ -327,7 +329,7 @@ function extractAssemblySteps(fullText: string): string[] {
   const steps: string[] = [];
 
   // Look for numbered steps: "Step 1:", "Step 2:", etc.
-  const stepPattern = /step\s+(\d+)\s*:?\s*(.+?)(?=step\s+\d+|$)/gis;
+  const stepPattern = /step\s+(\d+)\s*:?\s*(.+?)(?=step\s+\d+|$)/gi;
   let match;
   while ((match = stepPattern.exec(fullText)) !== null) {
     const stepText = match[2].trim().substring(0, 200);
