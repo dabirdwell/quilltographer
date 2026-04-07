@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { AccessibilityProvider } from "@/components/AccessibilityProvider";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Quiltographer — AI-Powered Quilting Pattern Parser",
+  title: "Quiltographer — Your Quilting Companion",
   description:
-    "Upload or describe a quilt pattern and get structured cutting lists, fabric requirements, and step-by-step assembly instructions.",
+    "A patient, knowledgeable quilting friend who guides you through every step of your pattern, at whatever pace and size you need.",
 };
 
 export default function RootLayout({
@@ -28,7 +29,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <AccessibilityProvider>{children}</AccessibilityProvider>
       </body>
     </html>
   );
