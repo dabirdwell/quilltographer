@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import type { GuidedStep } from "@/lib/guided-steps";
 
 interface AskCompanionProps {
@@ -31,7 +31,24 @@ export function AskCompanion({
   const [response, setResponse] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [attachedPhoto, setAttachedPhoto] = useState<string | null>(null);
   const responseRef = useRef<HTMLDivElement>(null);
+  const photoInputRef = useRef<HTMLInputElement>(null);
+
+  const handlePhotoSelect = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => setAttachedPhoto(reader.result as string);
+      reader.readAsDataURL(file);
+      // Reset input so the same file can be re-selected
+      e.target.value = "";
+    },
+    []
+  );
+
+  const removePhoto = useCallback(() => setAttachedPhoto(null), []);
 
   // Scroll to response when it changes
   useEffect(() => {
@@ -59,26 +76,60 @@ export function AskCompanion({
       .join("\n\n");
 
     try {
-      const res = await fetch("/api/companion", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          patternName,
-          stepNumber: currentStepIndex + 1,
-          stepText: currentStep.text,
-          surroundingContext: surroundingSteps,
-          metadata: metadata || "",
-          question: q,
-        }),
-      });
+      // Route to vision endpoint if a photo is attached
+      if (attachedPhoto) {
+        const base64 = attachedPhoto.replace(/^data:image\/\w+;base64,/, "");
+        const mimeMatch = attachedPhoto.match(/^data:(image\/\w+);base64,/);
+        const mimeType = mimeMatch ? mimeMatch[1] : "image/jpeg";
 
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data.error || "Something went wrong. Please try again.");
+        const res = await fetch("/api/companion/vision", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            image: base64,
+            mimeType,
+            prompt: q,
+            mode: "companion" as const,
+            context: {
+              patternName,
+              stepNumber: currentStepIndex + 1,
+              stepText: currentStep.text,
+              difficulty: metadata,
+            },
+          }),
+        });
+
+        if (!res.ok) {
+          const data = await res.json().catch(() => ({}));
+          throw new Error(data.error || "Something went wrong. Please try again.");
+        }
+
+        const data = await res.json();
+        setResponse(data.response);
+        setAttachedPhoto(null);
+      } else {
+        // Text-only: use existing companion endpoint
+        const res = await fetch("/api/companion", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            patternName,
+            stepNumber: currentStepIndex + 1,
+            stepText: currentStep.text,
+            surroundingContext: surroundingSteps,
+            metadata: metadata || "",
+            question: q,
+          }),
+        });
+
+        if (!res.ok) {
+          const data = await res.json().catch(() => ({}));
+          throw new Error(data.error || "Something went wrong. Please try again.");
+        }
+
+        const data = await res.json();
+        setResponse(data.response);
       }
-
-      const data = await res.json();
-      setResponse(data.response);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong.");
     } finally {
@@ -229,17 +280,69 @@ export function AskCompanion({
               )}
             </div>
 
+            {/* Attached photo preview */}
+            {attachedPhoto && (
+              <div className="mx-5 mb-2 flex items-center gap-2">
+                <img
+                  src={attachedPhoto}
+                  alt="Attached photo"
+                  className="h-12 w-12 rounded-lg object-cover"
+                />
+                <span className="quilt-text-sm flex-1" style={{ color: "var(--text-muted)" }}>
+                  Photo attached
+                </span>
+                <button
+                  onClick={removePhoto}
+                  className="rounded-full p-1"
+                  style={{ color: "var(--text-muted)" }}
+                  aria-label="Remove photo"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M18 6L6 18M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+            )}
+
+            {/* Hidden photo input */}
+            <input
+              ref={photoInputRef}
+              type="file"
+              accept="image/*"
+              capture="environment"
+              onChange={handlePhotoSelect}
+              className="hidden"
+            />
+
             {/* Custom question input */}
             <form
               onSubmit={handleSubmit}
               className="flex gap-2 px-5 py-3"
               style={{ borderTop: "1px solid var(--border)" }}
             >
+              {/* Attach photo button */}
+              <button
+                type="button"
+                onClick={() => photoInputRef.current?.click()}
+                className="touch-target flex items-center justify-center rounded-xl px-3 transition-colors"
+                style={{
+                  color: attachedPhoto ? "var(--accent)" : "var(--text-muted)",
+                  background: attachedPhoto ? "var(--accent-muted)" : "transparent",
+                  border: `1px solid ${attachedPhoto ? "var(--accent)" : "var(--border)"}`,
+                }}
+                aria-label="Attach a photo"
+                title="Attach a photo"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+                  <circle cx="12" cy="13" r="4" />
+                </svg>
+              </button>
               <input
                 type="text"
                 value={question}
                 onChange={(e) => setQuestion(e.target.value)}
-                placeholder="Ask anything about this step&hellip;"
+                placeholder={attachedPhoto ? "Ask about this photo\u2026" : "Ask anything about this step\u2026"}
                 className="quilt-text-sm min-h-[48px] flex-1 rounded-xl border px-4 py-2 outline-none transition-colors"
                 style={{
                   background: "var(--surface)",

@@ -11,6 +11,7 @@ import { AccessibilityControls, QuickSetup } from "@/components/AccessibilityCon
 import { AskCompanion } from "@/components/AskCompanion";
 import { CulturalContext } from "@/components/CulturalContext";
 import { FanNav } from "@/components/FanNav";
+import { ShowProgress } from "@/components/ShowProgress";
 import {
   SumiWash,
   ThreadNeedle,
@@ -450,6 +451,16 @@ function GuidedModeInner() {
                 {isCurrentComplete ? "Completed!" : "Mark as complete"}
               </span>
             </button>
+
+            {/* Show My Progress — vision photo assessment */}
+            <div className="mt-4">
+              <ShowProgress
+                patternName={pattern.name}
+                currentStepIndex={currentStep}
+                currentStep={step}
+                metadata={metadataStr}
+              />
+            </div>
 
             {/* All-complete banner */}
             {allComplete && !showCelebration && (
