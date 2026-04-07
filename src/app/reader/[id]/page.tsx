@@ -10,7 +10,11 @@ import {
 } from "@/lib/sample-patterns";
 import { getGuideForPattern } from "@/lib/guided-steps";
 import { useGuidedStore, formatDuration } from "@/lib/stores/guided-store";
+import { useStashStore, matchMaterialsToStash } from "@/lib/stores/stash-store";
 import { AccessibilityControls } from "@/components/AccessibilityControls";
+import { CulturalContext } from "@/components/CulturalContext";
+import { MaterialMatchBadge } from "@/components/StashCard";
+import { GenerativePreview } from "@/components/JapaneseTextures";
 
 /* ------------------------------------------------------------------ */
 /*  Difficulty visual (filled dots)                                    */
@@ -78,10 +82,11 @@ export default function PatternWelcomePage() {
   const pattern = getPatternById(patternId);
   const guide = getGuideForPattern(patternId);
   const session = useGuidedStore((s) => s.getSession(patternId));
+  const swatches = useStashStore((s) => s.swatches);
 
   if (!pattern || !guide) {
     return (
-      <div className="flex min-h-screen items-center justify-center paper-texture" style={{ background: "var(--background)" }}>
+      <div className="flex min-h-screen items-center justify-center washi-surface washi-base">
         <div className="text-center px-6">
           <p className="quilt-text-xl mb-4">Pattern not found</p>
           <Link
@@ -99,11 +104,12 @@ export default function PatternWelcomePage() {
   const hasExistingSession =
     session && session.completedSteps.length > 0;
 
+  // Cross-reference materials against stash
+  const materialMatches = matchMaterialsToStash(guide.materials, swatches);
+  const hasStash = swatches.length > 0;
+
   return (
-    <div
-      className="min-h-screen paper-texture"
-      style={{ background: "var(--background)" }}
-    >
+    <div className="min-h-screen washi-surface washi-base">
       <AccessibilityControls />
 
       {/* Back nav */}
@@ -127,7 +133,7 @@ export default function PatternWelcomePage() {
         </div>
 
         {/* Pattern name */}
-        <h1 className="quilt-text-heading text-center font-semibold mb-3">
+        <h1 className="quilt-text-heading text-center font-semibold mb-3 sumi-reveal">
           {pattern.name}
         </h1>
 
@@ -148,118 +154,166 @@ export default function PatternWelcomePage() {
 
         {/* Description */}
         <p
-          className="quilt-text text-center mb-8"
+          className="quilt-text text-center mb-6"
           style={{ color: "var(--text-secondary)" }}
         >
           {pattern.description}
         </p>
 
+        {/* Cultural context */}
+        <div className="mb-6">
+          <CulturalContext patternId={patternId} patternName={pattern.name} />
+        </div>
+
         {/* Info cards */}
         <div className="grid gap-4 sm:grid-cols-2 mb-8">
           {/* Estimated time */}
           <div
-            className="rounded-xl border px-5 py-4"
-            style={{ background: "var(--surface)", borderColor: "var(--border)" }}
+            className="washi-card rounded-xl border px-5 py-4"
+            style={{ borderColor: "var(--border)" }}
           >
-            <p className="quilt-text-sm mb-1" style={{ color: "var(--text-muted)" }}>
-              Estimated Time
-            </p>
-            <p className="quilt-text-lg font-semibold">
-              {guide.estimatedHours < 2
-                ? `${guide.estimatedHours * 60} minutes`
-                : `${guide.estimatedHours} hours`}
-            </p>
+            <div className="relative z-10">
+              <p className="quilt-text-sm mb-1" style={{ color: "var(--text-muted)" }}>
+                Estimated Time
+              </p>
+              <p className="quilt-text-lg font-semibold">
+                {guide.estimatedHours < 2
+                  ? `${guide.estimatedHours * 60} minutes`
+                  : `${guide.estimatedHours} hours`}
+              </p>
+            </div>
           </div>
 
           {/* Steps */}
           <div
-            className="rounded-xl border px-5 py-4"
-            style={{ background: "var(--surface)", borderColor: "var(--border)" }}
+            className="washi-card rounded-xl border px-5 py-4"
+            style={{ borderColor: "var(--border)" }}
           >
-            <p className="quilt-text-sm mb-1" style={{ color: "var(--text-muted)" }}>
-              Guided Steps
-            </p>
-            <p className="quilt-text-lg font-semibold">{guide.steps.length} steps</p>
+            <div className="relative z-10">
+              <p className="quilt-text-sm mb-1" style={{ color: "var(--text-muted)" }}>
+                Guided Steps
+              </p>
+              <p className="quilt-text-lg font-semibold">{guide.steps.length} steps</p>
+            </div>
           </div>
         </div>
 
-        {/* Materials checklist */}
+        {/* Materials checklist — with stash cross-reference */}
         <div
-          className="rounded-xl border px-5 py-4 mb-6"
-          style={{ background: "var(--surface)", borderColor: "var(--border)" }}
+          className="washi-card rounded-xl border px-5 py-4 mb-6"
+          style={{ borderColor: "var(--border)" }}
         >
-          <h2 className="quilt-text font-semibold mb-3">Materials Needed</h2>
-          <ul className="space-y-2">
-            {guide.materials.map((m, i) => (
-              <li key={i} className="flex items-start gap-3">
-                <span
-                  className="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded border"
-                  style={{ borderColor: "var(--border)" }}
-                />
-                <span className="quilt-text-sm">
-                  <strong>{m.name}</strong>{" "}
-                  <span style={{ color: "var(--text-muted)" }}>&mdash; {m.quantity}</span>
-                </span>
-              </li>
-            ))}
-          </ul>
+          <div className="relative z-10">
+            <div className="flex items-center justify-between mb-3">
+              <h2 className="quilt-text font-semibold">Materials Needed</h2>
+              {hasStash && (
+                <Link
+                  href="/stash"
+                  className="quilt-text-sm underline"
+                  style={{ color: "var(--accent)" }}
+                >
+                  View stash
+                </Link>
+              )}
+            </div>
+            <ul className="space-y-2">
+              {materialMatches.map((m, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span
+                    className="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded border"
+                    style={{ borderColor: "var(--border)" }}
+                  />
+                  <div className="flex-1 min-w-0">
+                    <span className="quilt-text-sm">
+                      <strong>{m.materialName}</strong>{" "}
+                      <span style={{ color: "var(--text-muted)" }}>&mdash; {m.materialQuantity}</span>
+                    </span>
+                    {hasStash && (
+                      <div className="mt-1">
+                        <MaterialMatchBadge status={m.status} />
+                      </div>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ul>
+            {!hasStash && (
+              <Link
+                href="/stash"
+                className="mt-3 inline-block quilt-text-sm underline"
+                style={{ color: "var(--text-muted)" }}
+              >
+                Add fabrics to your stash to see what you already have
+              </Link>
+            )}
+          </div>
         </div>
 
         {/* Tools */}
         <div
-          className="rounded-xl border px-5 py-4 mb-8"
-          style={{ background: "var(--surface)", borderColor: "var(--border)" }}
+          className="washi-card rounded-xl border px-5 py-4 mb-8"
+          style={{ borderColor: "var(--border)" }}
         >
-          <h2 className="quilt-text font-semibold mb-3">Tools You&rsquo;ll Need</h2>
-          <div className="flex flex-wrap gap-2">
-            {guide.tools.map((t, i) => (
-              <span
-                key={i}
-                className="rounded-full border px-3 py-1"
-                style={{
-                  fontSize: "calc(0.8rem * var(--font-scale))",
-                  borderColor: "var(--border)",
-                  color: "var(--text-secondary)",
-                }}
-              >
-                {t}
-              </span>
-            ))}
+          <div className="relative z-10">
+            <h2 className="quilt-text font-semibold mb-3">Tools You&rsquo;ll Need</h2>
+            <div className="flex flex-wrap gap-2">
+              {guide.tools.map((t, i) => (
+                <span
+                  key={i}
+                  className="rounded-full border px-3 py-1"
+                  style={{
+                    fontSize: "calc(0.8rem * var(--font-scale))",
+                    borderColor: "var(--border)",
+                    color: "var(--text-secondary)",
+                  }}
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Techniques */}
         <div
-          className="rounded-xl border px-5 py-4 mb-8"
-          style={{ background: "var(--surface)", borderColor: "var(--border)" }}
+          className="washi-card rounded-xl border px-5 py-4 mb-8"
+          style={{ borderColor: "var(--border)" }}
         >
-          <h2 className="quilt-text font-semibold mb-3">Techniques</h2>
-          <div className="flex flex-wrap gap-2">
-            {pattern.techniques.map((t, i) => (
-              <span
-                key={i}
-                className="rounded-full px-3 py-1"
-                style={{
-                  fontSize: "calc(0.8rem * var(--font-scale))",
-                  background: "var(--accent-muted)",
-                  color: "var(--accent)",
-                }}
-              >
-                {t}
-              </span>
-            ))}
+          <div className="relative z-10">
+            <h2 className="quilt-text font-semibold mb-3">Techniques</h2>
+            <div className="flex flex-wrap gap-2">
+              {pattern.techniques.map((t, i) => (
+                <span
+                  key={i}
+                  className="rounded-full px-3 py-1"
+                  style={{
+                    fontSize: "calc(0.8rem * var(--font-scale))",
+                    background: "var(--accent-muted)",
+                    color: "var(--accent)",
+                  }}
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Warm welcome message */}
+        {/* Warm welcome with generative preview */}
         <div
-          className="rounded-2xl border-2 px-6 py-6 text-center mb-8"
+          className="lantern-glow rounded-2xl border-2 px-6 py-6 text-center mb-8"
           style={{
             borderColor: "var(--accent-muted)",
             background: "var(--surface-raised)",
           }}
         >
-          <p className="text-3xl mb-3" aria-hidden="true">&#x1F9F5;</p>
+          <div className="flex justify-center mb-4">
+            <GenerativePreview
+              grid={pattern.grid}
+              colors={pattern.colors}
+              size={100}
+            />
+          </div>
           <p className="quilt-text-lg font-medium mb-2">
             Ready to begin?
           </p>
@@ -329,16 +383,17 @@ export default function PatternWelcomePage() {
                 <Link
                   key={p.id}
                   href={`/reader/${p.id}`}
-                  className="rounded-xl border p-3 transition-colors hover:border-accent"
+                  className="washi-card rounded-xl border p-3 transition-colors hover:border-accent"
                   style={{
                     borderColor: "var(--border)",
-                    background: "var(--surface)",
                   }}
                 >
-                  <p className="text-sm font-medium truncate">{p.name}</p>
-                  <p className="text-xs" style={{ color: "var(--text-muted)" }}>
-                    {getDifficultyLabel(p.difficulty)}
-                  </p>
+                  <div className="relative z-10">
+                    <p className="text-sm font-medium truncate">{p.name}</p>
+                    <p className="text-xs" style={{ color: "var(--text-muted)" }}>
+                      {getDifficultyLabel(p.difficulty)}
+                    </p>
+                  </div>
                 </Link>
               ))}
           </div>

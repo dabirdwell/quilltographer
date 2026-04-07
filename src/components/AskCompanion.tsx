@@ -95,11 +95,11 @@ export function AskCompanion({
 
   return (
     <>
-      {/* Floating help button */}
+      {/* Floating help button — with lantern glow */}
       {!open && (
         <button
           onClick={() => setOpen(true)}
-          className="touch-target-lg fixed bottom-24 right-4 z-20 flex items-center gap-2 rounded-full px-5 py-3 shadow-quilt-lg transition-transform hover:scale-105 active:scale-95"
+          className="lantern-glow-breathe touch-target-lg fixed bottom-24 right-20 z-20 flex items-center gap-2 rounded-full px-5 py-3 shadow-quilt-lg transition-transform hover:scale-105 active:scale-95"
           style={{
             background: "var(--accent)",
             color: "white",
@@ -115,11 +115,11 @@ export function AskCompanion({
         </button>
       )}
 
-      {/* Companion panel */}
+      {/* Companion panel — with lantern glow */}
       {open && (
         <div className="fixed inset-x-0 bottom-0 z-30 animate-slide-up">
           <div
-            className="mx-auto max-w-2xl rounded-t-2xl border border-b-0 shadow-quilt-lg"
+            className={`lantern-glow mx-auto max-w-2xl rounded-t-2xl border border-b-0 shadow-quilt-lg ${response ? "lantern-active" : ""}`}
             style={{
               background: "var(--surface-raised)",
               borderColor: "var(--border)",

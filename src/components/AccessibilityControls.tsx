@@ -350,6 +350,36 @@ export function AccessibilityControls() {
                 />
               </button>
             </div>
+
+            {/* Textile Sound Design */}
+            <fieldset className="mt-4">
+              <legend className="mb-2 text-sm font-medium" style={{ color: "var(--text-muted)" }}>
+                Textile Sounds
+              </legend>
+              <p className="text-xs mb-2" style={{ color: "var(--text-muted)" }}>
+                Fabric-inspired audio for step transitions and completions
+              </p>
+              <div className="flex gap-2">
+                {(["off", "subtle", "full"] as const).map((level) => {
+                  const active = store.soundLevel === level;
+                  const labels = { off: "Off", subtle: "Subtle", full: "Full" };
+                  return (
+                    <button
+                      key={level}
+                      onClick={() => store.setSoundLevel(level)}
+                      className="flex-1 rounded-lg border px-3 py-2 text-sm transition-colors"
+                      style={{
+                        borderColor: active ? "var(--accent)" : "var(--border)",
+                        background: active ? "var(--accent-muted)" : "transparent",
+                        fontWeight: active ? 600 : 400,
+                      }}
+                    >
+                      {labels[level]}
+                    </button>
+                  );
+                })}
+              </div>
+            </fieldset>
           </div>
         </div>
       )}

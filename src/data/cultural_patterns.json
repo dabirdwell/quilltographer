@@ -1,0 +1,162 @@
+[
+  {
+    "pattern_name": "nine-patch",
+    "display_name": "Nine Patch",
+    "origin": "American Colonial",
+    "period": "Early 1700s–present",
+    "cultural_context": "The Nine Patch is one of the first blocks most quilters learn, and it has been a staple of American quilting since colonial times when fabric scraps were far too precious to waste.",
+    "learn_more_url": "https://en.wikipedia.org/wiki/Nine_patch"
+  },
+  {
+    "pattern_name": "log-cabin",
+    "display_name": "Log Cabin",
+    "origin": "American, with roots in British Isle traditions",
+    "period": "1860s–present",
+    "cultural_context": "The Log Cabin block dates to the 1860s and is often associated with Abraham Lincoln's presidential campaign — the center square traditionally represents the hearth.",
+    "learn_more_url": "https://en.wikipedia.org/wiki/Log_cabin_(quilting)"
+  },
+  {
+    "pattern_name": "flying-geese",
+    "display_name": "Flying Geese",
+    "origin": "American frontier",
+    "period": "Early 1800s–present",
+    "cultural_context": "Flying Geese triangles evoke migrating birds overhead and were a favorite among westward-moving settlers, possibly serving as directional symbols in quilts hung along the Underground Railroad.",
+    "learn_more_url": "https://en.wikipedia.org/wiki/Quilting#History"
+  },
+  {
+    "pattern_name": "star-block",
+    "display_name": "Star Block",
+    "origin": "American, European geometric traditions",
+    "period": "Late 1700s–present",
+    "cultural_context": "Star blocks are among the most beloved quilt motifs in American history, with dozens of regional variations — from the simple Friendship Star to the elaborate Mariner's Compass.",
+    "learn_more_url": "https://en.wikipedia.org/wiki/Star_quilt"
+  },
+  {
+    "pattern_name": "tumbling-blocks",
+    "display_name": "Tumbling Blocks",
+    "origin": "English, based on ancient Roman mosaic geometry",
+    "period": "1850s–present",
+    "cultural_context": "Tumbling Blocks creates a mesmerizing 3D optical illusion using just three diamond-shaped fabrics, a trick borrowed from tile patterns that go back to ancient Rome.",
+    "learn_more_url": "https://en.wikipedia.org/wiki/Tumbling_blocks"
+  },
+  {
+    "pattern_name": "storm-at-sea",
+    "display_name": "Storm at Sea",
+    "origin": "American, New England coastal communities",
+    "period": "Mid-1800s–present",
+    "cultural_context": "Storm at Sea uses clever arrangements of squares and diamond-in-a-square units to create a rolling, wave-like illusion — a tribute to the seafaring life of New England quilters.",
+    "learn_more_url": "https://en.wikipedia.org/wiki/Quilting"
+  },
+  {
+    "pattern_name": "wedding-ring",
+    "display_name": "Double Wedding Ring",
+    "origin": "American South and Appalachia",
+    "period": "1920s–present (with earlier roots)",
+    "cultural_context": "The Double Wedding Ring became wildly popular during the Great Depression as a symbol of enduring love, and its interlocking curves made it one of the most challenging — and cherished — gifts a quilter could give.",
+    "learn_more_url": "https://en.wikipedia.org/wiki/Double_Wedding_Ring_quilt"
+  },
+  {
+    "pattern_name": "cathedral-window",
+    "display_name": "Cathedral Window",
+    "origin": "English and American",
+    "period": "1920s–present",
+    "cultural_context": "Cathedral Window is a clever no-batting, no-quilting technique where folded muslin frames reveal colorful fabric \"windows\" inspired by Gothic stained glass.",
+    "learn_more_url": "https://en.wikipedia.org/wiki/Cathedral_window_(quilting)"
+  },
+  {
+    "pattern_name": "lone-star",
+    "display_name": "Lone Star",
+    "origin": "American, with strong ties to Texas and Native American star quilting",
+    "period": "Early 1800s–present",
+    "cultural_context": "The Lone Star — also called the Star of Bethlehem — radiates from a single center point and holds deep meaning for Lakota and Dakota communities, where star quilts are gifted to honor life's milestones.",
+    "learn_more_url": "https://en.wikipedia.org/wiki/Star_quilt"
+  },
+  {
+    "pattern_name": "paper-pieced-landscape",
+    "display_name": "Paper-Pieced Landscape",
+    "origin": "Modern international quilting movement",
+    "period": "1980s–present",
+    "cultural_context": "Paper-pieced landscapes emerged from the art quilt movement of the 1980s, when quilters began using foundation piecing to render photorealistic scenes of mountains, seascapes, and forests in fabric.",
+    "learn_more_url": "https://en.wikipedia.org/wiki/Quilting#Art_quilts"
+  },
+  {
+    "pattern_name": "bear-paw",
+    "display_name": "Bear's Paw",
+    "origin": "American frontier and Native American traditions",
+    "period": "Mid-1800s–present",
+    "cultural_context": "Bear's Paw was a popular block on the American frontier, where the bear was both a real daily presence and a symbol of strength — some quilting historians trace its roots to Native American beadwork motifs.",
+    "learn_more_url": "https://en.wikipedia.org/wiki/Quilting#Patterns"
+  },
+  {
+    "pattern_name": "drunkards-path",
+    "display_name": "Drunkard's Path",
+    "origin": "American, linked to the Temperance movement",
+    "period": "1840s–present",
+    "cultural_context": "Drunkard's Path was embraced by the Women's Christian Temperance Union in the 1800s as a visual argument against alcohol — its wobbly curved path illustrating the staggering effects of drink.",
+    "learn_more_url": "https://en.wikipedia.org/wiki/Drunkard%27s_path"
+  },
+  {
+    "pattern_name": "grandmother-flower-garden",
+    "display_name": "Grandmother's Flower Garden",
+    "origin": "English paper piecing tradition",
+    "period": "1770s (as hexagon mosaic), popular in 1930s America",
+    "cultural_context": "Grandmother's Flower Garden uses English paper-pieced hexagons arranged in rosette clusters, and it became the single most popular quilt pattern in Depression-era America when every scrap of fabric mattered.",
+    "learn_more_url": "https://en.wikipedia.org/wiki/Grandmother%27s_Flower_Garden"
+  },
+  {
+    "pattern_name": "irish-chain",
+    "display_name": "Irish Chain",
+    "origin": "Irish and Irish-American",
+    "period": "Early 1800s–present",
+    "cultural_context": "The Irish Chain pattern creates a diagonal lattice across the quilt and was brought to America by Irish immigrants — it remains one of the most elegant ways to showcase just two fabrics.",
+    "learn_more_url": "https://en.wikipedia.org/wiki/Irish_chain"
+  },
+  {
+    "pattern_name": "pinwheel",
+    "display_name": "Pinwheel",
+    "origin": "American and European folk traditions",
+    "period": "Mid-1800s–present",
+    "cultural_context": "The Pinwheel block captures a sense of playful motion using simple half-square triangles, making it a timeless favorite for children's quilts and a great confidence builder for beginners.",
+    "learn_more_url": "https://en.wikipedia.org/wiki/Quilting#Patterns"
+  },
+  {
+    "pattern_name": "bow-tie",
+    "display_name": "Bow Tie",
+    "origin": "American, popularized in the early 20th century",
+    "period": "1920s–present",
+    "cultural_context": "The Bow Tie block became fashionable alongside the real neckwear trend of the 1920s and 1930s, and its clever use of background fabric to form the knot makes it a satisfying optical puzzle.",
+    "learn_more_url": "https://en.wikipedia.org/wiki/Quilting"
+  },
+  {
+    "pattern_name": "ohio-star",
+    "display_name": "Ohio Star",
+    "origin": "American Midwest, Ohio",
+    "period": "Early 1800s–present",
+    "cultural_context": "The Ohio Star is a proud symbol of the Buckeye State and one of the most recognized quilt blocks in America, built from a simple nine-patch grid with quarter-square triangle points.",
+    "learn_more_url": "https://en.wikipedia.org/wiki/Ohio_Star"
+  },
+  {
+    "pattern_name": "rail-fence",
+    "display_name": "Rail Fence",
+    "origin": "American frontier",
+    "period": "Mid-1800s–present",
+    "cultural_context": "Rail Fence is beautifully simple — strips sewn together and alternated to mimic the zigzag split-rail fences that bordered homesteads across the American frontier.",
+    "learn_more_url": "https://en.wikipedia.org/wiki/Rail_fence_(quilting)"
+  },
+  {
+    "pattern_name": "sunbonnet-sue",
+    "display_name": "Sunbonnet Sue",
+    "origin": "American, inspired by Bertha Corbett's illustrations",
+    "period": "1900s–1930s peak popularity, still made today",
+    "cultural_context": "Sunbonnet Sue — the little girl whose face is always hidden by her oversized bonnet — was inspired by early 1900s children's book illustrations and became one of the most collected appliqué patterns in quilting history.",
+    "learn_more_url": "https://en.wikipedia.org/wiki/Sunbonnet_Sue"
+  },
+  {
+    "pattern_name": "hawaiian-applique",
+    "display_name": "Hawaiian Appliqué",
+    "origin": "Hawaii (Native Hawaiian tradition)",
+    "period": "1820s–present",
+    "cultural_context": "Hawaiian appliqué patterns are sacred designs inspired by native flora, traditionally created by folding fabric like paper snowflakes.",
+    "learn_more_url": "https://en.wikipedia.org/wiki/Hawaiian_quilt"
+  }
+]

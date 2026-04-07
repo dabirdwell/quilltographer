@@ -1,0 +1,458 @@
+/* ============================================================
+   JAPANESE MATERIAL DESIGN SYSTEM
+   Three foundational visual elements:
+   - Washi Paper Texture (surface)
+   - Sumi Ink Wash (transition)
+   - Lantern Glow (presence)
+   ============================================================ */
+
+/* ========================
+   WASHI PAPER TEXTURE
+   Subtle handmade paper fiber background.
+   Barely visible — felt more than seen.
+   ======================== */
+
+.washi-surface {
+  position: relative;
+}
+
+.washi-surface::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30c10-2 20 1 30 0s20-3 30-1' fill='none' stroke='%23795548' stroke-width='0.3' opacity='0.6'/%3E%3Cpath d='M0 15c8 1 18-2 28 0s22 2 32 0' fill='none' stroke='%23795548' stroke-width='0.2' opacity='0.4'/%3E%3Cpath d='M0 45c12-1 22 2 32 1s18-2 28-1' fill='none' stroke='%23795548' stroke-width='0.25' opacity='0.5'/%3E%3Cpath d='M15 0c-1 10 2 20 0 30s-2 20 0 30' fill='none' stroke='%23795548' stroke-width='0.2' opacity='0.3'/%3E%3Cpath d='M45 0c1 12-1 22 0 32s1 18 0 28' fill='none' stroke='%23795548' stroke-width='0.15' opacity='0.3'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 60px 60px;
+  border-radius: inherit;
+}
+
+/* Light variant for cards */
+.washi-card {
+  position: relative;
+  background: var(--surface-raised);
+}
+
+.washi-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20c8-1 16 1 24 0s12-1 16 0' fill='none' stroke='%23795548' stroke-width='0.3' opacity='0.5'/%3E%3Cpath d='M0 8c6 1 14-1 20 0s14 1 20 0' fill='none' stroke='%23795548' stroke-width='0.2' opacity='0.3'/%3E%3Cpath d='M0 32c10-1 18 1 24 0s12 0 16 0' fill='none' stroke='%23795548' stroke-width='0.2' opacity='0.4'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 40px 40px;
+  border-radius: inherit;
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .washi-surface::before,
+[data-theme="dark"] .washi-card::before {
+  filter: invert(1);
+  opacity: 0.025;
+}
+
+[data-theme="high-contrast"] .washi-surface::before,
+[data-theme="high-contrast"] .washi-card::before {
+  display: none;
+}
+
+/* Warm cream base */
+.washi-base {
+  background-color: #faf6f0;
+}
+
+[data-theme="dark"] .washi-base {
+  background-color: #1a1814;
+}
+
+[data-theme="light"] .washi-base {
+  background-color: #fefcf8;
+}
+
+[data-theme="high-contrast"] .washi-base {
+  background-color: #000000;
+}
+
+
+/* ========================
+   SUMI INK WASH
+   Transition effect for page loads
+   and section changes. Ink diffusing
+   through water.
+   ======================== */
+
+@keyframes sumi-wash-in {
+  0% {
+    opacity: 0.6;
+    filter: blur(0px);
+    transform: scale(0.8);
+  }
+  40% {
+    opacity: 0.4;
+    filter: blur(12px);
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    filter: blur(20px);
+    transform: scale(1.3);
+  }
+}
+
+@keyframes sumi-wash-out {
+  0% {
+    opacity: 0;
+    filter: blur(20px);
+  }
+  30% {
+    opacity: 0.5;
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 0;
+    filter: blur(0px);
+  }
+}
+
+.sumi-wash {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sumi-wash-circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(42, 37, 32, 0.6) 0%,
+    rgba(42, 37, 32, 0.3) 40%,
+    transparent 70%
+  );
+  animation: sumi-wash-in 600ms ease-out forwards;
+}
+
+[data-theme="dark"] .sumi-wash-circle,
+[data-theme="high-contrast"] .sumi-wash-circle {
+  background: radial-gradient(
+    circle,
+    rgba(200, 190, 170, 0.4) 0%,
+    rgba(200, 190, 170, 0.2) 40%,
+    transparent 70%
+  );
+}
+
+/* Section transition variant — smaller, origin-positioned */
+.sumi-section-transition {
+  position: absolute;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.sumi-section-transition .sumi-wash-circle {
+  width: 120px;
+  height: 120px;
+  animation: sumi-wash-in 500ms ease-out forwards;
+}
+
+/* Content reveal with sumi-fade */
+@keyframes sumi-content-reveal {
+  0% {
+    opacity: 0;
+    filter: blur(4px);
+    transform: translateY(6px);
+  }
+  60% {
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sumi-reveal {
+  animation: sumi-content-reveal 500ms ease-out forwards;
+}
+
+
+/* ========================
+   LANTERN GLOW
+   Warm amber radial gradient
+   positioned behind key UI elements.
+   Brightens on interaction — like a
+   paper lantern flickering in response
+   to breath.
+   ======================== */
+
+@keyframes lantern-breathe {
+  0%, 100% { opacity: var(--lantern-opacity, 0.08); }
+  50%      { opacity: calc(var(--lantern-opacity, 0.08) * 1.4); }
+}
+
+@keyframes lantern-respond {
+  0%   { opacity: var(--lantern-opacity, 0.08); }
+  30%  { opacity: 0.18; }
+  100% { opacity: var(--lantern-opacity, 0.08); }
+}
+
+.lantern-glow {
+  position: relative;
+}
+
+.lantern-glow::after {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  pointer-events: none;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 180, 80, 0.08) 0%,
+    rgba(255, 160, 60, 0.04) 40%,
+    transparent 70%
+  );
+  opacity: 1;
+  transition: opacity 400ms ease;
+}
+
+/* Active/responding state */
+.lantern-glow.lantern-active::after {
+  animation: lantern-respond 400ms ease forwards;
+}
+
+/* Subtle always-on breathing for companion and fan hub */
+.lantern-glow-breathe::after {
+  content: "";
+  position: absolute;
+  inset: -30px;
+  pointer-events: none;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 180, 80, 0.08) 0%,
+    rgba(255, 160, 60, 0.03) 50%,
+    transparent 75%
+  );
+  animation: lantern-breathe 4s ease-in-out infinite;
+}
+
+/* Dark mode: slightly warmer glow */
+[data-theme="dark"] .lantern-glow::after,
+[data-theme="dark"] .lantern-glow-breathe::after {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 180, 80, 0.1) 0%,
+    rgba(255, 160, 60, 0.05) 40%,
+    transparent 70%
+  );
+}
+
+/* High contrast: no decorative glow */
+[data-theme="high-contrast"] .lantern-glow::after,
+[data-theme="high-contrast"] .lantern-glow-breathe::after {
+  display: none;
+}
+
+
+/* ========================
+   MICRO-DELIGHT ANIMATIONS
+   ======================== */
+
+/* Thread-and-needle completion animation */
+@keyframes thread-stitch {
+  0% {
+    stroke-dashoffset: 24;
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes needle-pull {
+  0% {
+    transform: translateX(-8px) translateY(8px) rotate(-45deg);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+    transform: translateX(0) translateY(0) rotate(-45deg);
+  }
+  100% {
+    transform: translateX(8px) translateY(-8px) rotate(-45deg);
+    opacity: 0;
+  }
+}
+
+.thread-stitch-line {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  animation: thread-stitch 400ms ease-out forwards;
+}
+
+.needle-pull {
+  animation: needle-pull 400ms ease-out forwards;
+}
+
+/* Fabric unfurling section transition */
+@keyframes fabric-unfurl {
+  0% {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0.5;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+.fabric-unfurl {
+  animation: fabric-unfurl 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Quilt block progress bar pattern */
+.progress-quilt-pattern {
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 6px,
+    rgba(255, 255, 255, 0.12) 6px,
+    rgba(255, 255, 255, 0.12) 8px
+  ),
+  repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 6px,
+    rgba(255, 255, 255, 0.08) 6px,
+    rgba(255, 255, 255, 0.08) 8px
+  );
+}
+
+/* Celebration confetti — fabric scraps */
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-20px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.confetti-scrap {
+  position: fixed;
+  width: 12px;
+  height: 8px;
+  border-radius: 1px;
+  pointer-events: none;
+  z-index: 100;
+  animation: confetti-fall linear forwards;
+}
+
+/* Fan navigation animations */
+@keyframes fan-open {
+  0% {
+    transform: rotate(-90deg) scale(0.3);
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fan-close {
+  0% {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-90deg) scale(0.3);
+    opacity: 0;
+  }
+}
+
+@keyframes fan-item-reveal {
+  0% {
+    transform: translateX(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.fan-arc {
+  transform-origin: bottom right;
+}
+
+.fan-arc-open {
+  animation: fan-open 350ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.fan-arc-close {
+  animation: fan-close 250ms ease-in forwards;
+}
+
+.fan-item-reveal {
+  opacity: 0;
+  animation: fan-item-reveal 200ms ease-out forwards;
+}
+
+
+/* ========================
+   SEASONAL TOUCHES
+   ======================== */
+
+.season-spring {
+  --seasonal-accent: rgba(168, 197, 173, 0.06);
+}
+
+.season-summer {
+  --seasonal-accent: rgba(196, 87, 58, 0.04);
+}
+
+.season-autumn {
+  --seasonal-accent: rgba(245, 158, 11, 0.06);
+}
+
+.season-winter {
+  --seasonal-accent: rgba(147, 197, 253, 0.06);
+}
+
+.seasonal-tint::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    var(--seasonal-accent, transparent) 0%,
+    transparent 60%
+  );
+}

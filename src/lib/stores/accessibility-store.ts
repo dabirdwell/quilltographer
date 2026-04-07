@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import type { SoundLevel } from "@/lib/sound-design";
 
 export type FontScale = 100 | 150 | 200 | 250 | 300;
 export type Theme = "light" | "dark" | "warm" | "high-contrast";
@@ -11,6 +12,7 @@ interface AccessibilityState {
   lineSpacing: LineSpacing;
   readingGuide: boolean;
   soundEnabled: boolean;
+  soundLevel: SoundLevel;
   hasCompletedSetup: boolean;
 
   setFontScale: (scale: FontScale) => void;
@@ -18,6 +20,7 @@ interface AccessibilityState {
   setLineSpacing: (spacing: LineSpacing) => void;
   setReadingGuide: (enabled: boolean) => void;
   setSoundEnabled: (enabled: boolean) => void;
+  setSoundLevel: (level: SoundLevel) => void;
   completeSetup: () => void;
 }
 
@@ -29,6 +32,7 @@ export const useAccessibilityStore = create<AccessibilityState>()(
       lineSpacing: "relaxed",
       readingGuide: false,
       soundEnabled: true,
+      soundLevel: "off" as SoundLevel,
       hasCompletedSetup: false,
 
       setFontScale: (fontScale) => set({ fontScale }),
@@ -36,6 +40,7 @@ export const useAccessibilityStore = create<AccessibilityState>()(
       setLineSpacing: (lineSpacing) => set({ lineSpacing }),
       setReadingGuide: (readingGuide) => set({ readingGuide }),
       setSoundEnabled: (soundEnabled) => set({ soundEnabled }),
+      setSoundLevel: (soundLevel) => set({ soundLevel }),
       completeSetup: () => set({ hasCompletedSetup: true }),
     }),
     { name: "quiltographer-accessibility" }

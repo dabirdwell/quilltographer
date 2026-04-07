@@ -1,0 +1,502 @@
+[
+  {
+    "id": 1,
+    "tip": "Press seams to one side for quilting — they're stronger than open seams and create a ridge that helps you feel where to align pieces.",
+    "category": "pressing"
+  },
+  {
+    "id": 2,
+    "tip": "Keep a small trash can right next to your cutting mat. You'll be amazed how much cleaner your workspace stays.",
+    "category": "tools"
+  },
+  {
+    "id": 3,
+    "tip": "When chain piecing, don't cut the thread between pairs — let them feed through like a little fabric chain. It saves thread and time.",
+    "category": "piecing"
+  },
+  {
+    "id": 4,
+    "tip": "Always prewash your fabric if you plan to wash the finished quilt. Different fabrics shrink at different rates, and surprises after quilting are heartbreaking.",
+    "category": "fabric"
+  },
+  {
+    "id": 5,
+    "tip": "Replace your rotary cutter blade more often than you think you need to. A dull blade causes inaccurate cuts and hand fatigue.",
+    "category": "cutting"
+  },
+  {
+    "id": 6,
+    "tip": "Use a scant quarter-inch seam allowance — just a thread or two less than a true quarter inch. This accounts for the tiny fold when you press the seam.",
+    "category": "piecing"
+  },
+  {
+    "id": 7,
+    "tip": "Press, don't iron. Pressing means lifting the iron and setting it down; ironing means sliding it back and forth, which can stretch and distort your fabric.",
+    "category": "pressing"
+  },
+  {
+    "id": 8,
+    "tip": "When cutting strips, fold your fabric only once selvedge to selvedge. Folding it twice introduces more chances for crooked cuts.",
+    "category": "cutting"
+  },
+  {
+    "id": 9,
+    "tip": "Nest your seams. When two seam allowances are pressed in opposite directions, they lock together like puzzle pieces and give you perfectly matched points.",
+    "category": "piecing"
+  },
+  {
+    "id": 10,
+    "tip": "Invest in good thread. Cheap thread sheds lint, breaks easily, and can weaken your seams over time.",
+    "category": "tools"
+  },
+  {
+    "id": 11,
+    "tip": "If your points keep getting chopped off, try sewing with the triangle on top so you can see exactly where the seam intersections are.",
+    "category": "piecing"
+  },
+  {
+    "id": 12,
+    "tip": "Use a design wall — even a piece of flannel pinned to the wall works. Seeing your blocks up from a distance changes everything about your color and layout choices.",
+    "category": "design"
+  },
+  {
+    "id": 13,
+    "tip": "Square up your blocks before assembling the quilt top. It takes a little extra time but makes the whole assembly go smoother.",
+    "category": "cutting"
+  },
+  {
+    "id": 14,
+    "tip": "When in doubt, add more pins. Pinning every two inches along a seam might feel like overkill, but your finished block will thank you.",
+    "category": "piecing"
+  },
+  {
+    "id": 15,
+    "tip": "Store your fabric out of direct sunlight. UV rays fade colors faster than you'd expect, especially reds and purples.",
+    "category": "fabric"
+  },
+  {
+    "id": 16,
+    "tip": "Take a photo of your quilt layout with your phone and convert it to black and white. This instantly reveals whether you have enough value contrast.",
+    "category": "design"
+  },
+  {
+    "id": 17,
+    "tip": "Start and end every line of quilting with a few backstitches or lock stitches to keep things from unraveling over time.",
+    "category": "finishing"
+  },
+  {
+    "id": 18,
+    "tip": "Don't skip starching. A little spray starch makes fabric behave like paper — easier to cut, easier to sew, and bias edges stay put.",
+    "category": "fabric"
+  },
+  {
+    "id": 19,
+    "tip": "Measure your quilt top through the center, not along the edges, when cutting border strips. Edges stretch; the center measurement is the true size.",
+    "category": "cutting"
+  },
+  {
+    "id": 20,
+    "tip": "Your first quilt doesn't have to be perfect. It just has to be finished. Perfection comes with practice, and a finished quilt is always better than an unfinished one.",
+    "category": "general"
+  },
+  {
+    "id": 21,
+    "tip": "Use a walking foot when sewing long straight seams or attaching borders. It feeds the top and bottom layers evenly and prevents shifting.",
+    "category": "tools"
+  },
+  {
+    "id": 22,
+    "tip": "Press seams toward the darker fabric whenever possible. Dark seam allowances can shadow through light fabric and dull your design.",
+    "category": "pressing"
+  },
+  {
+    "id": 23,
+    "tip": "If you're having trouble with fabric slipping while cutting, place a piece of fine-grit sandpaper under your ruler. It grips like magic.",
+    "category": "cutting"
+  },
+  {
+    "id": 24,
+    "tip": "Buy more fabric than you think you need. Running out of a fabric mid-project and finding it discontinued is a special kind of frustration.",
+    "category": "fabric"
+  },
+  {
+    "id": 25,
+    "tip": "Clean and oil your sewing machine regularly. A well-maintained machine stitches better, runs quieter, and lasts decades longer.",
+    "category": "tools"
+  },
+  {
+    "id": 26,
+    "tip": "Odd numbers of fabrics tend to look more dynamic than even numbers. Try using three or five fabrics in a project for visual interest.",
+    "category": "design"
+  },
+  {
+    "id": 27,
+    "tip": "Sew a test seam on a scrap of the same fabric before starting your project. Check your seam allowance and tension every single time.",
+    "category": "piecing"
+  },
+  {
+    "id": 28,
+    "tip": "Trim your dog ears — those little triangles that stick out past your seam allowance after sewing triangles. It makes everything align better in the next step.",
+    "category": "cutting"
+  },
+  {
+    "id": 29,
+    "tip": "When pressing half-square triangles, press toward the darker fabric first, then open. This sets the seam and gives you a crisp, flat unit.",
+    "category": "pressing"
+  },
+  {
+    "id": 30,
+    "tip": "Use the same brand and weight of batting throughout a single quilt. Mixing battings can cause uneven shrinkage and weird puckering.",
+    "category": "finishing"
+  },
+  {
+    "id": 31,
+    "tip": "Label every quilt you make with your name, the date, and who it's for. Future generations will treasure knowing the story behind it.",
+    "category": "finishing"
+  },
+  {
+    "id": 32,
+    "tip": "A quarter-inch foot for your machine is one of the best investments you can make. It turns consistent seam allowances from a struggle into a given.",
+    "category": "tools"
+  },
+  {
+    "id": 33,
+    "tip": "Cut your binding strips on the bias for quilts with curved edges. For straight-edged quilts, straight-grain binding works beautifully and wastes less fabric.",
+    "category": "finishing"
+  },
+  {
+    "id": 34,
+    "tip": "If a block isn't working, try rotating it 90 degrees on your design wall. Sometimes the perfect layout is just a turn away.",
+    "category": "design"
+  },
+  {
+    "id": 35,
+    "tip": "Keep your rotary cutter closed when it's not actively in your hand. This habit will save you from cuts — rotary blades are surgical-sharp.",
+    "category": "tools"
+  },
+  {
+    "id": 36,
+    "tip": "Iron your fabric before cutting. Wrinkled fabric leads to inaccurate measurements and wonky pieces that won't fit together properly.",
+    "category": "pressing"
+  },
+  {
+    "id": 37,
+    "tip": "When you're choosing fabrics, include at least one print that feels a little unexpected. That 'wrong' fabric often becomes the one that makes the whole quilt sing.",
+    "category": "design"
+  },
+  {
+    "id": 38,
+    "tip": "Sew from the inside of the block outward — set center seams first, then work toward the edges. This helps keep everything centered and square.",
+    "category": "piecing"
+  },
+  {
+    "id": 39,
+    "tip": "Use glass-head pins, not plastic-head ones. If a hot iron accidentally touches a plastic head, it melts into a sticky mess on your fabric.",
+    "category": "tools"
+  },
+  {
+    "id": 40,
+    "tip": "Spray basting is faster than pin basting for large quilts. Lay out your quilt sandwich on a flat surface, spray the batting, and smooth the layers together.",
+    "category": "finishing"
+  },
+  {
+    "id": 41,
+    "tip": "Fat quarters and fat eighths are more versatile than strips of the same yardage because they give you width and length to work with.",
+    "category": "fabric"
+  },
+  {
+    "id": 42,
+    "tip": "If you're making a scrappy quilt, include a consistent background fabric. It unifies all those different prints and gives the eye a place to rest.",
+    "category": "design"
+  },
+  {
+    "id": 43,
+    "tip": "Clip your selvages off before cutting your pieces. Selvage edges are woven more tightly and behave differently than the rest of the fabric.",
+    "category": "cutting"
+  },
+  {
+    "id": 44,
+    "tip": "When ripping out a seam, use a seam ripper to cut every third or fourth stitch on one side, then pull the thread from the other side in one long piece.",
+    "category": "general"
+  },
+  {
+    "id": 45,
+    "tip": "Practice free-motion quilting on quilt sandwiches made from old sheets and scrap batting. You'll build muscle memory without risking a real project.",
+    "category": "finishing"
+  },
+  {
+    "id": 46,
+    "tip": "When picking thread for quilting, go one shade lighter than your fabric rather than one shade darker. Light thread tends to blend in more naturally.",
+    "category": "finishing"
+  },
+  {
+    "id": 47,
+    "tip": "Use a Clover or Frixion pen for marking quilting lines. They disappear with heat or water, leaving no trace on your finished quilt.",
+    "category": "tools"
+  },
+  {
+    "id": 48,
+    "tip": "Alternate the direction you sew rows together. Sew the first row left to right, the next right to left, and so on. This prevents your quilt top from skewing.",
+    "category": "piecing"
+  },
+  {
+    "id": 49,
+    "tip": "Consider your quilt's end use when choosing batting. Cotton batting is cozy and drapes well for bed quilts; polyester batting is puffier and great for wall hangings.",
+    "category": "finishing"
+  },
+  {
+    "id": 50,
+    "tip": "Step away from a color choice you're uncertain about and come back with fresh eyes. What felt wrong at 10pm often looks exactly right the next morning.",
+    "category": "general"
+  },
+  {
+    "id": 51,
+    "tip": "Keep a dedicated notebook or binder for each quilt project. Record fabric choices, measurements, and what worked (or didn't). Future you will be grateful.",
+    "category": "general"
+  },
+  {
+    "id": 52,
+    "tip": "Finger press small seams before hitting them with the iron. A quick press with your thumbnail sets the direction and prevents accidentally pressing the wrong way.",
+    "category": "pressing"
+  },
+  {
+    "id": 53,
+    "tip": "Test your fabric for colorfastness before using deep reds, purples, or batiks. Soak a swatch in hot water — if the water turns color, prewash until it runs clear.",
+    "category": "fabric"
+  },
+  {
+    "id": 54,
+    "tip": "Use a leader and ender scrap when chain piecing. Feed a small scrap through before and after your real pieces to prevent thread nests and jams.",
+    "category": "piecing"
+  },
+  {
+    "id": 55,
+    "tip": "Accuracy in cutting matters more than speed. Take your time at the cutting stage and you'll spend far less time fixing problems at the sewing stage.",
+    "category": "cutting"
+  },
+  {
+    "id": 56,
+    "tip": "Avoid stretching bias edges by handling those pieces as little as possible. If you must handle them, starch first to stabilize the weave.",
+    "category": "fabric"
+  },
+  {
+    "id": 57,
+    "tip": "Vary the scale of your prints — use a large-scale, a medium-scale, and a small-scale print together. Mixing scales adds depth and visual texture.",
+    "category": "design"
+  },
+  {
+    "id": 58,
+    "tip": "Join binding strips with a diagonal seam rather than a straight one. The bulk is distributed over a longer distance and the join is nearly invisible.",
+    "category": "finishing"
+  },
+  {
+    "id": 59,
+    "tip": "A self-healing cutting mat is worth every penny. Take care of it by keeping it flat, away from heat, and out of direct sunlight to prevent warping.",
+    "category": "tools"
+  },
+  {
+    "id": 60,
+    "tip": "Sew slowly over intersections and bulky seams. Rushing through thick spots is how needles break and seam lines wander.",
+    "category": "piecing"
+  },
+  {
+    "id": 61,
+    "tip": "When setting in a Y-seam, stop and pivot exactly at the quarter-inch mark. Don't sew into the seam allowance — leave it free for the next piece to be set in.",
+    "category": "piecing"
+  },
+  {
+    "id": 62,
+    "tip": "Use a reducing glass or look through the wrong end of a peephole to see your quilt from a 'distance' in a small room. It helps you evaluate overall balance.",
+    "category": "design"
+  },
+  {
+    "id": 63,
+    "tip": "The grain line of your fabric matters. Cut squares and rectangles on the straight grain so the edges are stable and won't stretch out of shape.",
+    "category": "cutting"
+  },
+  {
+    "id": 64,
+    "tip": "Don't compare your third quilt to someone else's three hundredth. Every quilter started exactly where you are now.",
+    "category": "general"
+  },
+  {
+    "id": 65,
+    "tip": "Set your iron near your machine so you can press without getting up. The more convenient it is, the more consistently you'll press — and consistent pressing shows.",
+    "category": "pressing"
+  },
+  {
+    "id": 66,
+    "tip": "Choose your quilting thread weight based on whether you want the stitching to blend in or stand out. Thinner thread disappears; thicker thread becomes a design element.",
+    "category": "finishing"
+  },
+  {
+    "id": 67,
+    "tip": "Layer your quilt sandwich on a hard, flat surface — a table or even a clean floor works well. A bed is too soft and will cause wrinkles in your backing.",
+    "category": "finishing"
+  },
+  {
+    "id": 68,
+    "tip": "Read through all the pattern instructions before cutting a single piece. Understanding the full construction process helps you make smarter decisions at every step.",
+    "category": "general"
+  },
+  {
+    "id": 69,
+    "tip": "Use painter's tape on your sewing machine as a seam guide if you don't have a quarter-inch foot. It's low-tech but surprisingly effective.",
+    "category": "tools"
+  },
+  {
+    "id": 70,
+    "tip": "Flannel makes a wonderful quilt backing. It grips the batting and reduces shifting, and it adds a cozy softness to the finished quilt.",
+    "category": "fabric"
+  },
+  {
+    "id": 71,
+    "tip": "When making half-square triangles, cut your starting squares a half inch larger than the finished size plus seam allowances. Trim down to exact size after sewing.",
+    "category": "cutting"
+  },
+  {
+    "id": 72,
+    "tip": "Pin perpendicular to the seam line, not parallel to it. Perpendicular pins hold fabric in place right where it counts and are easy to remove as you sew.",
+    "category": "piecing"
+  },
+  {
+    "id": 73,
+    "tip": "Use a wool pressing mat. It lets you press from both sides at once because the wool pushes heat back up through the fabric. Seams get wonderfully flat.",
+    "category": "tools"
+  },
+  {
+    "id": 74,
+    "tip": "Solids and near-solids (tone-on-tone prints) are the quiet heroes of quilting. They let busier fabrics shine and give your eyes a visual break.",
+    "category": "fabric"
+  },
+  {
+    "id": 75,
+    "tip": "Quilting lines spaced closer than a fist-width apart will keep your batting from shifting and bunching over time, no matter what type of batting you use.",
+    "category": "finishing"
+  },
+  {
+    "id": 76,
+    "tip": "If your seams are consistently too wide or too narrow, check your needle position rather than your fabric alignment. Sometimes the fix is in the machine settings.",
+    "category": "piecing"
+  },
+  {
+    "id": 77,
+    "tip": "Use a stiletto or an awl to guide fabric under the presser foot instead of your fingers. It gives you more control and keeps fingertips safely away from the needle.",
+    "category": "tools"
+  },
+  {
+    "id": 78,
+    "tip": "When working with stripes or directional prints, cut each piece individually rather than stacking and cutting multiples. It takes longer, but the pattern alignment is worth it.",
+    "category": "cutting"
+  },
+  {
+    "id": 79,
+    "tip": "Give yourself permission to use 'cheater' methods like fusible web for applique or pre-cut strips from jelly rolls. Good results matter more than the method used.",
+    "category": "general"
+  },
+  {
+    "id": 80,
+    "tip": "Press your seams before crossing them with another seam. Un-pressed seams shift and cause inaccuracies that compound with every additional seam.",
+    "category": "pressing"
+  },
+  {
+    "id": 81,
+    "tip": "When auditioning fabrics, pull them off the bolt and scrunch them next to each other. Fabrics look different unfolded and rumpled than they do on the bolt.",
+    "category": "fabric"
+  },
+  {
+    "id": 82,
+    "tip": "Consider adding a hanging sleeve to the back of wall quilts during the binding step. It's much easier to add during construction than to sew on after the fact.",
+    "category": "finishing"
+  },
+  {
+    "id": 83,
+    "tip": "Use the same ruler for the entire project whenever possible. Different rulers can have slightly different markings, and those tiny differences add up over many cuts.",
+    "category": "cutting"
+  },
+  {
+    "id": 84,
+    "tip": "Include a 'zinger' — a small pop of an unexpected color in your quilt. A touch of orange in a blue quilt or a dash of yellow in a green one adds energy and life.",
+    "category": "design"
+  },
+  {
+    "id": 85,
+    "tip": "Change your sewing machine needle after every 8 to 10 hours of sewing. A dull needle causes skipped stitches, puckered fabric, and a subtle popping sound.",
+    "category": "tools"
+  },
+  {
+    "id": 86,
+    "tip": "Avoid pressing with steam on applique blocks that use fusible web. The moisture can weaken the adhesive and cause edges to lift over time.",
+    "category": "pressing"
+  },
+  {
+    "id": 87,
+    "tip": "When building a quilt with sashing, press all sashing seams toward the sashing strips. This makes the sashing puff up slightly and frames each block beautifully.",
+    "category": "pressing"
+  },
+  {
+    "id": 88,
+    "tip": "If a fabric calls to you in the store but doesn't match your current project, buy a half yard anyway. A curated stash is a quilter's greatest resource.",
+    "category": "fabric"
+  },
+  {
+    "id": 89,
+    "tip": "Foundation paper piecing is worth learning for any design with sharp points or tiny pieces. The paper stabilizes everything and your points will be laser-crisp.",
+    "category": "piecing"
+  },
+  {
+    "id": 90,
+    "tip": "Warm your machine up by sewing on a scrap for a minute before starting your project. Some machines need a moment for the tension to stabilize.",
+    "category": "tools"
+  },
+  {
+    "id": 91,
+    "tip": "When designing a quilt, think about where your eye travels. High-contrast areas draw the eye first, so place your strongest contrasts where you want viewers to look.",
+    "category": "design"
+  },
+  {
+    "id": 92,
+    "tip": "Make your quilt backing four to six inches larger than the quilt top on all sides. This gives you plenty of margin for any shifting during quilting.",
+    "category": "finishing"
+  },
+  {
+    "id": 93,
+    "tip": "Strip piece whenever a pattern allows it. Sewing strips together and then cutting them into segments is far faster and more accurate than cutting and sewing individual pieces.",
+    "category": "piecing"
+  },
+  {
+    "id": 94,
+    "tip": "Use a lint roller on your finished quilt top before basting. It picks up all the tiny thread bits and fabric fuzz that could show through lighter fabrics.",
+    "category": "general"
+  },
+  {
+    "id": 95,
+    "tip": "When cutting fabric for a project, cut the largest pieces first. You can always cut smaller pieces from the leftovers, but you can't make scraps bigger.",
+    "category": "cutting"
+  },
+  {
+    "id": 96,
+    "tip": "Extend the life of your cutting mat by rotating it regularly and cutting on different sections. Cutting in the same spot repeatedly creates grooves that affect accuracy.",
+    "category": "tools"
+  },
+  {
+    "id": 97,
+    "tip": "A busy print can read as a solid from a distance. Hold fabric at arm's length to see how it will read in a quilt — individual motifs often blend into an overall texture.",
+    "category": "fabric"
+  },
+  {
+    "id": 98,
+    "tip": "Machine wash and dry your finished quilt once to set the stitches and give it that lovely crinkled, loved texture that makes handmade quilts so special.",
+    "category": "finishing"
+  },
+  {
+    "id": 99,
+    "tip": "Remember that quilting is supposed to be enjoyable. If a technique is making you miserable, try a different approach. There's always more than one way to get where you're going.",
+    "category": "general"
+  },
+  {
+    "id": 100,
+    "tip": "Every quilt has a story, even if it's just 'I wanted to see if I could make this.' The act of making something by hand for someone — or for yourself — is always meaningful.",
+    "category": "general"
+  }
+]

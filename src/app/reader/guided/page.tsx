@@ -9,10 +9,19 @@ import { useGuidedStore, estimateRemaining, formatDuration } from "@/lib/stores/
 import { useAccessibilityStore } from "@/lib/stores/accessibility-store";
 import { AccessibilityControls, QuickSetup } from "@/components/AccessibilityControls";
 import { AskCompanion } from "@/components/AskCompanion";
+import { CulturalContext } from "@/components/CulturalContext";
+import { FanNav } from "@/components/FanNav";
+import {
+  SumiWash,
+  ThreadNeedle,
+  QuiltProgressBar,
+  CompletionCelebration,
+} from "@/components/JapaneseTextures";
+import { playSnip, playRustle, playChime } from "@/lib/sound-design";
 import Link from "next/link";
 
 /* ------------------------------------------------------------------ */
-/*  Completion sound via Web Audio API                                 */
+/*  Completion sound via Web Audio API (legacy, kept for soundEnabled) */
 /* ------------------------------------------------------------------ */
 
 function playCompletionSound() {
@@ -22,14 +31,14 @@ function playCompletionSound() {
     const gain = ctx.createGain();
     osc.connect(gain);
     gain.connect(ctx.destination);
-    osc.frequency.value = 523.25; // C5 — gentle, pleasant
+    osc.frequency.value = 523.25;
     osc.type = "sine";
     gain.gain.setValueAtTime(0.12, ctx.currentTime);
     gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.4);
     osc.start(ctx.currentTime);
     osc.stop(ctx.currentTime + 0.4);
   } catch {
-    // Audio not supported — that's fine
+    // Audio not supported
   }
 }
 
@@ -44,7 +53,7 @@ function PatternMiniPreview({
 }: {
   grid: number[][];
   colors: string[];
-  progress: number; // 0–1
+  progress: number;
 }) {
   const rows = grid.length;
   const cols = grid[0]?.length || 1;
@@ -106,44 +115,45 @@ function SessionSummary({
 
   return (
     <div
-      className="rounded-xl border px-5 py-4"
-      style={{ background: "var(--surface)", borderColor: "var(--border)" }}
+      className="washi-card rounded-xl border px-5 py-4"
+      style={{ borderColor: "var(--border)" }}
     >
-      <h3 className="quilt-text font-semibold mb-2">Session Summary</h3>
-      <div className="quilt-text-sm space-y-1" style={{ color: "var(--text-muted)" }}>
-        <p>
-          <strong>Pattern:</strong> {patternName}
-        </p>
-        <p>
-          <strong>Started:</strong>{" "}
-          {started.toLocaleDateString(undefined, {
-            weekday: "long",
-            month: "long",
-            day: "numeric",
-          })}{" "}
-          at{" "}
-          {started.toLocaleTimeString(undefined, {
-            hour: "numeric",
-            minute: "2-digit",
-          })}
-        </p>
-        <p>
-          <strong>Time spent:</strong> {formatDuration(elapsed)}
-        </p>
-        <p>
-          <strong>Progress:</strong> {completedCount} of {totalSteps} steps
-          complete
-        </p>
-        {completedCount < totalSteps && (
+      <div className="relative z-10">
+        <h3 className="quilt-text font-semibold mb-2">Session Summary</h3>
+        <div className="quilt-text-sm space-y-1" style={{ color: "var(--text-muted)" }}>
           <p>
-            <strong>Next up:</strong> Step {completedCount + 1}
+            <strong>Pattern:</strong> {patternName}
           </p>
-        )}
-        {completedCount === totalSteps && (
-          <p className="mt-2 font-semibold" style={{ color: "var(--success)" }}>
-            All steps complete! Your block is finished.
+          <p>
+            <strong>Started:</strong>{" "}
+            {started.toLocaleDateString(undefined, {
+              weekday: "long",
+              month: "long",
+              day: "numeric",
+            })}{" "}
+            at{" "}
+            {started.toLocaleTimeString(undefined, {
+              hour: "numeric",
+              minute: "2-digit",
+            })}
           </p>
-        )}
+          <p>
+            <strong>Time spent:</strong> {formatDuration(elapsed)}
+          </p>
+          <p>
+            <strong>Progress:</strong> {completedCount} of {totalSteps} steps complete
+          </p>
+          {completedCount < totalSteps && (
+            <p>
+              <strong>Next up:</strong> Step {completedCount + 1}
+            </p>
+          )}
+          {completedCount === totalSteps && (
+            <p className="mt-2 font-semibold" style={{ color: "var(--success)" }}>
+              All steps complete! Your block is finished.
+            </p>
+          )}
+        </div>
       </div>
     </div>
   );
@@ -160,10 +170,14 @@ function GuidedModeInner() {
   const pattern = getPatternById(patternId);
   const guide = getGuideForPattern(patternId);
 
-  const { hasCompletedSetup, soundEnabled } = useAccessibilityStore();
+  const { hasCompletedSetup, soundEnabled, soundLevel } = useAccessibilityStore();
   const [showSetup, setShowSetup] = useState(false);
   const [checkAnimating, setCheckAnimating] = useState(false);
   const [showSummary, setShowSummary] = useState(false);
+  const [sumiActive, setSumiActive] = useState(false);
+  const [showNeedle, setShowNeedle] = useState(false);
+  const [sectionTransition, setSectionTransition] = useState(false);
+  const [showCelebration, setShowCelebration] = useState(false);
 
   const store = useGuidedStore();
   const session = store.getSession(patternId);
@@ -179,6 +193,11 @@ function GuidedModeInner() {
       setShowSetup(true);
     }
   }, [hasCompletedSetup]);
+
+  // Initial sumi wash on load
+  useEffect(() => {
+    setSumiActive(true);
+  }, [patternId]);
 
   if (!pattern || !guide) {
     return (
@@ -202,11 +221,19 @@ function GuidedModeInner() {
   const completedSteps = session?.completedSteps ?? [];
   const isCurrentComplete = completedSteps.includes(currentStep);
   const progress = completedSteps.length / totalSteps;
+  const allComplete = completedSteps.length === totalSteps;
   const step = guide.steps[currentStep];
   const sequenceFlag = analyzeStepSequence(step.text, step.isSequenceCritical);
 
   const goToStep = (idx: number) => {
     if (idx >= 0 && idx < totalSteps) {
+      // Trigger fabric unfurl transition
+      setSectionTransition(true);
+      setTimeout(() => setSectionTransition(false), 650);
+
+      // Play rustle sound
+      playRustle(soundLevel);
+
       store.setCurrentStep(patternId, idx);
     }
   };
@@ -217,9 +244,23 @@ function GuidedModeInner() {
     } else {
       store.markStepComplete(patternId, currentStep);
       setCheckAnimating(true);
+      setShowNeedle(true);
       setTimeout(() => setCheckAnimating(false), 400);
-      if (soundEnabled) {
+      setTimeout(() => setShowNeedle(false), 450);
+
+      // Sound: snip for step, chime for section boundaries
+      if (soundLevel !== "off") {
+        playSnip(soundLevel);
+      } else if (soundEnabled) {
         playCompletionSound();
+      }
+
+      // Check if all steps now complete
+      if (completedSteps.length + 1 === totalSteps) {
+        setTimeout(() => {
+          setShowCelebration(true);
+          playChime(soundLevel);
+        }, 500);
       }
     }
   };
@@ -231,7 +272,18 @@ function GuidedModeInner() {
   ].join("\n");
 
   return (
-    <div className="min-h-screen paper-texture" style={{ background: "var(--background)" }}>
+    <div className="min-h-screen washi-surface washi-base">
+      {/* Sumi wash transition */}
+      <SumiWash active={sumiActive} />
+
+      {/* Completion celebration */}
+      <CompletionCelebration
+        active={showCelebration}
+        patternName={pattern.name}
+        colors={pattern.colors}
+        onDismiss={() => setShowCelebration(false)}
+      />
+
       {/* Quick Setup overlay */}
       {showSetup && <QuickSetup onComplete={() => setShowSetup(false)} />}
 
@@ -267,20 +319,9 @@ function GuidedModeInner() {
             </button>
           </div>
 
-          {/* Progress bar */}
+          {/* Quilt-patterned progress bar */}
           <div className="flex items-center gap-3">
-            <div
-              className="h-3 flex-1 overflow-hidden rounded-full"
-              style={{ background: "var(--progress-bg)" }}
-            >
-              <div
-                className="h-full rounded-full progress-animate transition-all duration-500"
-                style={{
-                  width: `${progress * 100}%`,
-                  background: "var(--progress-fill)",
-                }}
-              />
-            </div>
+            <QuiltProgressBar progress={progress} />
             <span className="quilt-text-sm whitespace-nowrap" style={{ color: "var(--text-muted)" }}>
               Step {currentStep + 1} of {totalSteps}
             </span>
@@ -300,7 +341,7 @@ function GuidedModeInner() {
 
       {/* Session summary (collapsible) */}
       {showSummary && session && (
-        <div className="mx-auto max-w-2xl px-4 pt-4 animate-fade-in">
+        <div className="mx-auto max-w-2xl px-4 pt-4 sumi-reveal">
           <SessionSummary
             patternName={pattern.name}
             sessionStart={session.sessionStartTime}
@@ -330,7 +371,20 @@ function GuidedModeInner() {
           </div>
 
           {/* Step content */}
-          <div className="w-full animate-fade-in" key={currentStep}>
+          <div
+            className={`w-full ${sectionTransition ? "fabric-unfurl" : "sumi-reveal"}`}
+            key={currentStep}
+          >
+            {/* Cultural context — show on first step */}
+            {currentStep === 0 && (
+              <div className="mb-4">
+                <CulturalContext
+                  patternId={patternId}
+                  patternName={pattern.name}
+                />
+              </div>
+            )}
+
             {/* Sequence warning */}
             {sequenceFlag.isCritical && (
               <div
@@ -356,9 +410,12 @@ function GuidedModeInner() {
                 Step {currentStep + 1}
               </span>
               {isCurrentComplete && (
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--success)" strokeWidth="3">
-                  <path d="M20 6L9 17l-5-5" />
-                </svg>
+                <>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--success)" strokeWidth="3">
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                  <ThreadNeedle playing={showNeedle} />
+                </>
               )}
             </div>
 
@@ -393,6 +450,28 @@ function GuidedModeInner() {
                 {isCurrentComplete ? "Completed!" : "Mark as complete"}
               </span>
             </button>
+
+            {/* All-complete banner */}
+            {allComplete && !showCelebration && (
+              <div
+                className="mt-6 washi-card rounded-xl border px-5 py-4 text-center sumi-reveal"
+                style={{
+                  borderColor: "var(--success)",
+                  background: "var(--success-muted)",
+                }}
+              >
+                <p className="relative z-10 quilt-text font-semibold" style={{ color: "var(--success)" }}>
+                  All steps complete! You made this.
+                </p>
+                <button
+                  onClick={() => setShowCelebration(true)}
+                  className="relative z-10 mt-2 quilt-text-sm underline"
+                  style={{ color: "var(--success)" }}
+                >
+                  See celebration
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </main>
@@ -453,7 +532,12 @@ function GuidedModeInner() {
         </div>
       </nav>
 
-      {/* Ask Companion floating button */}
+      {/* Fan Navigation */}
+      <div className="fixed bottom-24 right-4 z-20">
+        <FanNav />
+      </div>
+
+      {/* Ask Companion floating button — adjusted position */}
       <AskCompanion
         patternName={pattern.name}
         currentStepIndex={currentStep}
@@ -473,7 +557,7 @@ export default function GuidedModePage() {
   return (
     <Suspense
       fallback={
-        <div className="flex min-h-screen items-center justify-center">
+        <div className="flex min-h-screen items-center justify-center washi-base">
           <p className="quilt-text animate-gentle-pulse" style={{ color: "var(--text-muted)" }}>
             Loading your quilting companion&hellip;
           </p>
