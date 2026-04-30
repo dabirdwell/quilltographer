@@ -69,3 +69,6 @@ This is a standard Next.js app — Vercel auto-detects the framework with zero c
 4. Vercel will build and deploy automatically on every push to `main`.
 
 For the database, use a managed PostgreSQL provider (Vercel Postgres, Supabase, Neon, etc.) and set `DATABASE_URL` accordingly.
+---
+
+<p align="center"><em>Æ</em></p>
